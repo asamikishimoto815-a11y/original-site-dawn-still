@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawn&Still</title>
+    
+    <!-- ローカルのCSS読み込み -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Fontsの読み込み（かっこなし！） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesomeの読み込み（かっこなし！） -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+</head>
+<body>
+
+    <!-- ヘッダーエリア -->
+
+    <header id="header">
+        <h1 class="logo">
+            <a href="#"><img src="img/dawn&still.png" alt="dawnandstill"></a>
+        </h1>
+        <nav class="nav">
+            <ul>
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#stay">Stay</a></li>
+                <li><a href="#morning">Morning</a></li>
+                <li><a href="#journey">Journey</a></li>
+            </ul>
+        </nav>
+        <div class="header-btn-box">
+            <a href="#cta" class="btn-reserve open-modal">空室を確認する</a>
+        </div>
+
+        <!-- ★追加：スマホ用ハンバーガーメニューボタン（三本線） -->
+        <div class="menu-trigger" id="menuTrigger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- ★追加：スマホ用オーバーレイメニュー（初期状態は隠れています） -->
+        <div class="sp-nav" id="spNav">
+            <ul>
+                <li><a href="#concept" class="sp-nav-link">Concept</a></li>
+                <li><a href="#stay" class="sp-nav-link">Stay</a></li>
+                <li><a href="#morning" class="sp-nav-link">Morning</a></li>
+                <li><a href="#journey" class="sp-nav-link">Journey</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <!-- メインビジュアル -->
+
+    <main id="mainvisual">
+        <ul class="picture-fade">
+            <li><img src="img/top01.jpg" alt=""></li>
+            <li><img src="img/top02.jpg" alt="#"></li>
+            <li><img src="img/top03.jpg" alt="#"></li>   
+        </ul>
+        <div class="top-text">
+            <p class="mv-title">静かな朝が、<br>旅の始まりになる。</p>                    
+             <p class="mv-title-sab">山と海に囲まれた小さな宿</p> 
+        </div>
+        <div class="scroll_down" id="type01">
+            <a href="#concept">SCROLL</a>
+        </div>
+    </main>
+
+    <!-- コンセプトセクション -->
+
+    <section id="concept" class="concept-section">
+
+        <div class="concept-img fixed-bg">
+            <div class= "text-inner fadein">
+                <h2 class="section-title">Concept</h2>
+                <h3>
+                    海と山のあいだで、<br>
+                    自分に還る時間を。
+                </h3>
+                <div class="concept-text">
+                    <p>Dawn & Still は、<br>静けさと光に包まれる場所。</p>
+                    <p>窓の向こうに広がる自然が、<br>ゆっくりと心を解いてくれます。</p>
+                    <p >何もしない贅沢を、ここで。</p>
+                </div>
+            </div>         
+        </div>
+    </section>
+
+<!-- 客室（STAY）セクション -->
+
+    <section id="stay" class="stay-section">
+        <div class="title-container">
+            <h2 class="section-title">Stay</h2>
+            <p class="sub-title">-客室-</p>
+        </div>
+        <h3 class="stay-title">非日常の静寂が広がる、贅沢なプライベート空間。</h3>
+
+        <div class="slick-area">
+
+                <div class="room-card">
+                    <div class="room-img-box">
+                        <img src="img/room5.jpg" alt="oceanviewroom">
+                    </div>
+                    <div class="room-info">
+                        <p class="room-name">Ocean view Room</p>
+                        
+                    </div>
+                </div>
+
+                <div class="room-card">
+                    <div class="room-img-box">
+                        <img src="img/room4.jpg" alt="gardenroom">              
+                    </div>
+                    <div class="room-info">
+                        <p class="room-name">Garden Room</p>
+                      
+                    </div>
+                </div>  
+
+                <div class="room-card">
+                    <div class="room-img-box">
+                        <img src="img/room6.jpg" alt="gardenroom">              
+                    </div>
+                    <div class="room-info">
+                        <p class="room-name">Twin Room</p>
+                        
+                    </div>
+                </div>  
+
+                <div class="room-card">
+                    <div class="room-img-box">
+                        <img src="img/room1.jpg" alt="oceanviewroom">
+                    </div>
+                    <div class="room-info">
+                        <p class="room-name">Deluxe Room</p>
+                    
+                    </div>
+                </div>    
+
+                <div class="room-card">
+                    <div class="room-img-box">
+                        <img src="img/room2.jpg" alt="gardenroom">
+                    </div>
+                    <div class="room-info">
+                        <p class="room-name">Suite Room</p>
+                       
+                    </div>
+                </div>
+
+        </div>   
+    </section>
+
+<!-- 朝食（Morning）セクション -->
+
+    <section id="morning" class="morning-section">
+         
+        <div class="title-container">
+            <h2 class="section-title">Morning</h2>
+            <p class="sub-title">-朝食-</p>
+        </div>
+        <h3 class="morning-title">朝の光を、味わう。</h3>
+        
+        <div class="morning-block">
+            <div class="morning-img morning-img-left">
+                <img src="img/coffee.jpg" alt="朝のコーヒー">
+            </div>
+            <div class="morning-text">
+                <h4>光が差し込むテーブルで、<br>穏やかな目覚めの一杯を。</h4>
+                <p>窓辺から差し込むやわらかな光を感じながら、<br>
+                    淹れたての香ばしいコーヒーを。<br>
+                    穏やかな朝のはじまり。</p>
+            </div>
+        </div>
+
+        <div class="morning-block morning-reverse">
+            <div class="morning-img morning-img-right">
+                <img src="img/morning.jpg" alt="朝食">
+            </div>
+            <div class="morning-text" >
+                <h4>地元の恵みがたっぷりと詰まった、<br>身体にやさしい朝食。</h4>
+                <p>地元の食材を使った、やさしい朝ごはん。<br>
+                    焼きたてのパンや季節のスープ。<br>
+                    心ほどける朝の時間をお楽しみください。
+                </p>
+            </div>   
+        </div>
+
+    </section>
+
+    <!-- <div class="img-box">
+        <img src="img/asayake.jpg" alt="朝焼け">
+    </div> -->
+
+<!-- アクセス（Journey）セクション -->
+
+    <section id="journey" class="journey-section wrapper" >
+        <h2 class="section-title">Journey</h2>
+        <h3 class="journey-title">ここへ向かう時間さえ、旅の一部になる。</h3>
+
+        <div class="journey-visual">
+            <div class="item-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d36515.24873204125!2d138.887258!3d34.647895!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1783481746151!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+            <div class="outer-img-box">
+                <img src="img/gaikan.jpg" alt="Dawn&Still外観">
+            </div>
+        </div>
+        
+        <div class="journey-info">
+            <dl class="info-card">
+                <dt>Dawn & Still</dt>
+                    <dd>
+                        <p >〒415-0152 静岡県賀茂郡南伊豆町湊 567-8</p>
+                        <p >TEL:0558-xx-xxxx</p>
+                        <p >MAIL: info@dawnandstill.com</p>
+                        <p >Check in 15:00</p>
+                        <p>Check out 11:00</p>
+                    </dd>        
+            </dl>
+
+            <dl class="info-card">
+                <dt><i class="fa-solid fa-car"></i> お車でお越しの場合</dt>
+                    <dd>
+                        <p >東名高速道路「沼津IC」より</p>
+                        <p >伊豆縦貫自動車経由、約1時間40分</p>
+                        <p class="info-sub">※宿泊者専用・無料駐車場10台完備（ご予約不要） </p>
+                    </dd>
+                
+                </dl>
+
+            <dl class="info-card">
+                <dt><i class="fa-solid fa-train"></i> 電車・送迎バス</dt>
+                <dd>
+                    <p>「伊豆急下田駅」下車。駅から無料送迎バスあり。</p>
+                    <p class="info-sub">無料シャトルバス（予約制）<br>伊豆急下田駅発 14:30 / 15:30 / 16:30</p>
+                </dd>
+                
+            </dl>
+        </div>
+    </section>
+
+<!-- 予約（CTA）セクション -->
+    <section id="cta" class="cta-section">
+        <div class="cta-inner">
+            <h3 class="cta-title">静かな朝を、あなたへ。</h3>
+            <p class="cta-text">
+                日常のいそがしさを忘れ、今日という1日を<br>
+                少しだけゆっくり始めませんか。
+            </p>
+            <div class="cta-btn">
+                <a href="#cta" class="cta-button open-modal">空室状況を確認する</a>
+            </div>    
+        </div>
+    </section>
+
+<!-- footer -->
+    <footer class="footer-pc">
+        <img src="img/logo.png" alt="Dawn & Still" class="footer-logo">
+        <p class="footer-copy">
+            A quiet stay between sea and hills.
+        </p>
+
+        <nav class="footer-nav">
+            <ul>
+                <li><a href="#stay">Stay</a></li>
+                <li><a href="#morning">Morning</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </nav>
+        <small>© Dawn & Still All Rights Reserved.</small>
+    </footer>
+
+<!-- スマホ用フッター -->
+
+    <footer class="footer-sp">
+
+        <img src="img/logo.png" alt="Dawn & Still" class="footer-logo-sp">
+        <p class="footer-copy">
+            A quiet stay between sea and hills.
+        </p>
+
+        <nav class="footer-nav-sp">
+            <ul>
+                <li><a href="#">お問い合わせ</a></li>
+                <li><a href="#">Instagram</a></li>
+            </ul>
+        </nav>
+        <small>© Dawn & Still</small>
+    </footer>
+    <!-- スマホ専用：下部固定の追従予約ボタン -->
+    <div class="sp-fixed-btn">
+        <div class="sp-btn-text">
+            <span>Dawn & Still</span>
+            <!-- <span style="font-size: 9px; color: #A38A70; display: block;">Dawn & Still</span> -->
+            <p>穏やかな大人の朝</p>
+        </div>
+        <a href="#" class="btn-reserve-sp open-modal">空室を確認する</a>
+    </div>
+
+ <!--modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <button class="close" id="modalCloseBtn">&times;</button>
+
+                <h2>ご宿泊状況の照会</h2>
+                <p class="modal-text">
+                    只今、ご宿泊予約・空室確認を24時間リアルタイムで受け付けております。<br>
+                    ご希望のチェックイン日を選択してください。
+                </p>
+                <form onsubmit="event.preventDefault();">
+
+                    <div class="form-group">
+                        <label >チェックイン希望日</label>
+                        <input type="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>宿泊人数</label>
+                        <select>
+                            <option value="2" selected>大人2名</option>
+                            <option value="1">大人1名</option>
+                            <option value="3">大人3名</option>
+                            <option value="4">大人4名</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="search-btn">空室を検索する</button>
+                </form>   
+            </div>
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
