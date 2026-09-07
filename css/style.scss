@@ -15,7 +15,8 @@ $hotel-gold:#A38A70;
 }
 
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; 
 }
 
 *,
@@ -401,7 +402,7 @@ ul{
 
     
     }
-        
+    
     .section-title{
         text-align: center;
         margin-bottom: 20px;
@@ -613,68 +614,66 @@ ul{
 
 
 
-
-/*Journey*/
-
-.journey-section{
-    // padding:140px 7%;
-    // background: #FAF8F5;
-    // max-width: 100%;s
-    // margin: 0 auto;
-    // scroll-margin-top: 90px;
+/* Journey */
+.journey-section {
     padding: 90px 7%;
     padding-top: 0;
 
-    .section-title{
+    .section-title {
         margin-bottom: 12px;
     }
 
     .journey-title {
         color: $text-muted;
         letter-spacing: .12em;
-        font-family:"Noto Serif JP", serif;
+        font-family: "Noto Serif JP", serif;
         margin-bottom: 60px !important;
     }
-    .journey-visual{
-        margin-bottom:60px;
-        display:flex;        
+
+    .journey-visual {
+        margin-bottom: 60px;
+        display: flex;
         gap: 25px;
     }
-    .item-map{
+
+    .item-map {
         width: 60%;
         height: 350px;
         border-radius: 4px;
         overflow: hidden;
 
-        iframe{
-            width:100%;
-            height:100%;
+        iframe {
+            width: 100%;
+            height: 100%;
         }
     }
-    .outer-img-box{
+
+    .outer-img-box {
         width: 40%;
-        height:350px;
-        display:block;
+        height: 350px;
+        display: block;
         border-radius: 4px !important;
         overflow: hidden;
-    
-        img{
-           width: 100%;
-           height: 100%;
-           object-fit: cover; 
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
-    .journey-info{
-        display:flex;
+
+    .journey-info {
+        display: flex;
         justify-content: space-between;
         gap: 40px;
         padding-top: 40px;
     }
-    .info-card{
+
+    .info-card {
         width: 30%;
     }
-  
-    .info-card dt{
+
+    .info-card dt {
         display: flex;
         align-items: center;
         font-family: 'Noto Serif JP', serif;
@@ -686,21 +685,23 @@ ul{
         border-left: 2px solid $hotel-gold;
         padding-left: 10px;
     }
-    
-    .info-card dd p{
-        line-height:1.5;
-        color:$text-muted;
-    }
-    .info-card i{
-        color:$hotel-gold;
-        margin-right:10px;
-    }
-    .info-sub{
-        color:#999;
-        font-size:12px;
 
+    .info-card dd p {
+        line-height: 1.5;
+        color: $text-muted;
+    }
+
+    .info-card i {
+        color: $hotel-gold;
+        margin-right: 10px;
+    }
+
+    .info-sub {
+        color: #999;
+        font-size: 12px;
     }
 }
+
 
 /*cat*/
 .cta-section{
@@ -843,9 +844,9 @@ ul{
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
-    .modal.is-active{
-        display: flex;
-    }
+        &.is-active{
+            display: flex;
+        }
 
     .modal-content{
         position:relative;
@@ -988,7 +989,8 @@ ul{
     #header {
         padding: 0 5%;
         background-color: #b18a53; 
-        backdrop-filter: blur;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         
 
@@ -1024,7 +1026,7 @@ ul{
     }
     /* 2. メインビジュアル */
     #mainvisual {
-        height: 75vh; 
+        height: calc(100svh - 60px); 
 
         .top-text {
             top: 45%;
@@ -1044,6 +1046,7 @@ ul{
              margin-top: 14px;
              letter-spacing: 0.2em;
          }
+
         .scroll_down {
             bottom: 15px;
 
@@ -1061,19 +1064,23 @@ ul{
         }
     }
 
-    /* 3. 各セクションの余白を縮め */
-    .concept-section,
-    .stay-section,
-    .morning-section,
-    .journey-section {
-        background: #F6F3EE;
-        padding:0 0 60px 0;
-        scroll-margin-top: 70px;
-    }    
-    /* Concept */
-    .concept-title {
-        font-size: 19px !important; 
+    
+/*concept*/ 
+    #concept .section-title {
+        font-size: 21px !important; 
         margin-bottom: 25px;
+    }
+    .fixed-bg {
+        height: auto;
+        min-height: 650px;
+        padding: 60px 20px;
+        box-sizing: border-box;
+    }
+    .text-inner {
+        width: 100%;
+        max-width: 420px;
+        padding: 55px 30px;
+        box-sizing: border-box;
     }
     .concept-text p {
         font-size: 13px !important;
@@ -1082,48 +1089,71 @@ ul{
     }
 
     /* Stay */
-    .stay-title {
-        font-size: 13px !important;
-        line-height: 1.6;
-        margin-bottom: 40px;
+    #stay {
+        scroll-margin-top: 100px;
+    }    
+    .stay-section{
+        padding: 70px 0 50px;
     }
-    .slick-dots{
-        position:relative;
-        bottom:auto;
-        margin-top:20px;
-    }
-    .slick-slide{
-    transform: scale(.88);
-}
-    .room-name{
-    padding: 10px 0;
-    }
-
-    .slick-center{
-    transform: scale(1);
-    }
-
-    .slick-dots li button::before{
-        color:#c8b08c;
-        opacity:.4;
-        font-size:8px;
-    }
-
-    .slick-dots li.slick-active button::before{
-        color:#A38A70;
-        opacity:1;
-    }
-
-
-    /* 4. ：Morning*/
-    .morning-section .morning-block {
-        flex-direction: column !important; 
-        gap: 20px !important;              
-        margin-bottom: 0 ;    
-
-        &.morning-reverse {
-            flex-direction: column !important; 
+        .section-title{
+            font-size: 21px !important; 
         }
+    
+        .stay-title {
+            font-size: 13px !important;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+        .slick-dots{
+            position:relative;
+            bottom:auto;
+            margin-top:20px;
+        }
+        .slick-slide{
+            transform: scale(.88);
+        }
+        .room-name{
+        padding: 10px 0;
+        }
+
+        .slick-center{
+        transform: scale(1);
+        }
+
+        .slick-dots li button::before{
+            color:#c8b08c;
+            opacity:.4;
+            font-size:8px;
+        }
+
+        .slick-dots li.slick-active button::before{
+            color:#A38A70;
+            opacity:1;
+        }
+        
+
+        /* 4. ：Morning*/
+         #morning {
+
+        scroll-margin-top: 70px;
+
+        }
+        .morning-section{
+            padding: 70px 0 50px;
+        }
+        
+        .section-title{
+            font-size: 21px !important; 
+        }
+         .morning-block {
+            flex-direction: column !important; 
+            gap: 20px !important;              
+            margin-bottom: 0 ; 
+            
+
+            &.morning-reverse {
+                flex-direction: column !important; 
+            }
     }    
     
     .morning-img {
@@ -1140,7 +1170,7 @@ ul{
             object-fit: cover !important;
             display: block;
         }
-}
+    }
         .morning-text {
             width: 100% !important;        
             padding: 0 20px;  
@@ -1157,24 +1187,23 @@ ul{
             }
         }
     
-    /* 5.Journeyの重なり直らない */
-    .section-title{
-        padding: 0 20px;
-    }
+    /* 5.Journey */
+
     .journey-title {
         font-size: 13px !important;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         padding: 0 15px;
     }
+
     .journey-visual {
-        flex-direction: column !important; 
+        flex-direction: column !important;
         gap: 15px !important;
         padding: 0 15px;
 
         .item-map,
         .outer-img-box {
             width: 100% !important;
-            height: 200px !important;     
+            height: 200px !important;
         }
     }
     
