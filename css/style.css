@@ -587,13 +587,14 @@ ul {
   line-height: 2.2;
 }
 
-/*Journey*/
+/* Journey */
+#journey {
+  scroll-margin-top: 100px;
+}
+
 .journey-section {
   padding: 90px 7%;
   padding-top: 0;
-}
-.journey-section #journey {
-  scroll-margin-top: 80px;
 }
 .journey-section .section-title {
   margin-bottom: 12px;
@@ -1116,9 +1117,6 @@ ul {
   }
   .journey-section .section-title {
     padding-top: 20px;
-  }
-  .section-title {
-    padding: 50px 20px 0 20px;
   }
   .journey-title {
     font-size: 13px !important;
