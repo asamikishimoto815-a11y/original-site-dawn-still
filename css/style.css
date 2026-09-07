@@ -9,7 +9,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
 }
 
 *,
@@ -34,12 +33,6 @@ a {
   text-decoration: none;
   color: inherit;
   transition: all 0.3s ease;
-}
-
-.wrapper {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 4%;
 }
 
 .section-title {
@@ -586,6 +579,8 @@ ul {
 
 /* Journey */
 .journey-section {
+  max-width: 1200px;
+  margin: auto;
   padding: 90px 7%;
   padding-top: 0;
 }
@@ -966,7 +961,7 @@ ul {
   }
   /* 2. メインビジュアル */
   #mainvisual {
-    height: calc(100svh - 60px);
+    height: 100svh;
   }
   #mainvisual .top-text {
     top: 45%;
@@ -1020,9 +1015,6 @@ ul {
     margin-bottom: 15px;
   }
   /* Stay */
-  #stay {
-    scroll-margin-top: 100px;
-  }
   .stay-section {
     padding: 70px 0 50px;
   }
@@ -1058,9 +1050,6 @@ ul {
     opacity: 1;
   }
   /* 4. ：Morning*/
-  #morning {
-    scroll-margin-top: 70px;
-  }
   .morning-section {
     padding: 70px 0 50px;
   }

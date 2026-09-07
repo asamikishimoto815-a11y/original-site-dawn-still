@@ -16,7 +16,7 @@ $hotel-gold:#A38A70;
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; 
+//   scroll-padding-top: 100px; 
 }
 
 *,
@@ -43,11 +43,7 @@ a{
     transition: all 0.3s ease;
 }
 
-.wrapper{
-    max-width: 1200px;
-    margin:auto;
-    padding: 0 4%;
-}
+
 .section-title{
     font-family: "Noto Serif JP", serif;
     color: $hotel-gold;
@@ -616,6 +612,8 @@ ul{
 
 /* Journey */
 .journey-section {
+    max-width: 1200px;
+    margin:auto;
     padding: 90px 7%;
     padding-top: 0;
 
@@ -1026,7 +1024,8 @@ ul{
     }
     /* 2. メインビジュアル */
     #mainvisual {
-        height: calc(100svh - 60px); 
+        // height: calc(100svh - 60px); 
+        height: 100svh;
 
         .top-text {
             top: 45%;
@@ -1089,9 +1088,9 @@ ul{
     }
 
     /* Stay */
-    #stay {
-        scroll-margin-top: 100px;
-    }    
+    // #stay {
+    //     scroll-margin-top: 100px;
+    // }    
     .stay-section{
         padding: 70px 0 50px;
     }
@@ -1133,11 +1132,11 @@ ul{
         
 
         /* 4. ：Morning*/
-         #morning {
+        //  #morning {
 
-        scroll-margin-top: 70px;
+        // scroll-margin-top: 70px;
 
-        }
+        // }
         .morning-section{
             padding: 70px 0 50px;
         }
