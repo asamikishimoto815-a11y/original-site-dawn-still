@@ -965,7 +965,7 @@ ul {
   }
   /* 2. メインビジュアル */
   #mainvisual {
-    height: 75vh;
+    height: calc(100svh - 60px);
   }
   #mainvisual .top-text {
     top: 45%;
@@ -997,18 +997,28 @@ ul {
     height: 45px !important;
   }
   /* 3. 各セクションの余白を縮め */
-  .concept-section,
-.stay-section,
-.morning-section,
-.journey-section {
-    background: #F6F3EE;
-    padding: 0 0 60px 0;
+  #morning {
     scroll-margin-top: 70px;
   }
+  #journey {
+    scroll-margin-top: 80px;
+  }
   /* Concept */
-  .concept-title {
-    font-size: 19px !important;
+  #concept .section-title {
+    font-size: 21px !important;
     margin-bottom: 25px;
+  }
+  .fixed-bg {
+    height: auto;
+    min-height: 650px;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+  .text-inner {
+    width: 100%;
+    max-width: 420px;
+    padding: 55px 30px;
+    box-sizing: border-box;
   }
   .concept-text p {
     font-size: 13px !important;
@@ -1016,6 +1026,15 @@ ul {
     margin-bottom: 15px;
   }
   /* Stay */
+  #stay {
+    scroll-margin-top: 100px;
+  }
+  .stay-section {
+    padding: 70px 0 50px;
+  }
+  .section-title {
+    font-size: 21px !important;
+  }
   .stay-title {
     font-size: 13px !important;
     line-height: 1.6;
@@ -1045,12 +1064,18 @@ ul {
     opacity: 1;
   }
   /* 4. ：Morning*/
-  .morning-section .morning-block {
+  .morning-section {
+    padding: 70px 0 50px;
+  }
+  .section-title {
+    font-size: 21px !important;
+  }
+  .morning-block {
     flex-direction: column !important;
     gap: 20px !important;
     margin-bottom: 0;
   }
-  .morning-section .morning-block.morning-reverse {
+  .morning-block.morning-reverse {
     flex-direction: column !important;
   }
   .morning-img {
@@ -1084,11 +1109,11 @@ ul {
   }
   /* 5.Journeyの重なり直らない */
   .section-title {
-    padding: 0 20px;
+    padding: 50px 20px 0 20px;
   }
   .journey-title {
     font-size: 13px !important;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     padding: 0 15px;
   }
   .journey-visual {
