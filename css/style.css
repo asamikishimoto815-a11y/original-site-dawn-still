@@ -996,13 +996,6 @@ ul {
   #mainvisual .scroll_down a::after {
     height: 45px !important;
   }
-  /* 3. 各セクションの余白を縮め */
-  #morning {
-    scroll-margin-top: 70px;
-  }
-  #journey {
-    scroll-margin-top: 80px;
-  }
   /* Concept */
   #concept .section-title {
     font-size: 21px !important;
@@ -1064,6 +1057,9 @@ ul {
     opacity: 1;
   }
   /* 4. ：Morning*/
+  #morning {
+    scroll-margin-top: 70px;
+  }
   .morning-section {
     padding: 70px 0 50px;
   }
@@ -1107,7 +1103,13 @@ ul {
     font-size: 13px !important;
     line-height: 1.8;
   }
-  /* 5.Journeyの重なり直らない */
+  /* 5.Journey */
+  #journey {
+    scroll-margin-top: 100px;
+  }
+  .journey-section .section-title {
+    padding-top: 20px;
+  }
   .section-title {
     padding: 50px 20px 0 20px;
   }
