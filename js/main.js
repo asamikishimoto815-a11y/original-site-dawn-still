@@ -30,7 +30,21 @@ $(function () {
   // 出発地点をクリックすると、URLの末尾にIDタグ(例.https://coffee.com#menu)が付与されてしまう。
   // これを防ぐために、最後に１文return falseを追加します。
 
+$('a[href^="#"]').click(function () {
 
+    let href = $(this).attr("href");
+    let target = $(href == "#" || href == "" ? "html" : href);
+
+    if (!target.length) return false;
+
+    let position = target.offset().top - $("#header").outerHeight();
+
+    $("html, body").animate({
+        scrollTop: position
+    }, 600, "swing");
+
+    return false;
+});
 
 
 
