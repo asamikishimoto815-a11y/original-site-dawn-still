@@ -1,0 +1,1310 @@
+@charset "UTF-8";
+:root {
+  --bg-cream: #FAF8F5;
+  --text-dark: #2A2A2A;
+  --text-muted: #5A5248;
+  --hotel-blue: #2d3e4e;
+  --hotel-gold: #A38A70;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: 0.1em;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 4%;
+}
+
+.section-title {
+  font-family: "Noto Serif JP", serif;
+  color: #A38A70;
+  font-size: 32px;
+  letter-spacing: 0.2em;
+}
+
+ul {
+  list-style: none;
+}
+
+.fadein {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 3s;
+}
+
+/*header*/
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  padding: 20px 4%;
+  width: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  z-index: 100;
+}
+#header.is-scroll {
+  background: #A38A70;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 12px 4%;
+}
+#header .logo img {
+  width: auto;
+  height: 70px;
+  transition: height 0.3s ease;
+}
+#header .nav ul {
+  display: flex;
+  gap: 30px;
+}
+#header .nav a {
+  color: white;
+  transition: 0.3s;
+}
+#header .nav a:hover {
+  color: #2d3e4e;
+}
+#header .header-btn-box {
+  display: flex;
+  align-items: center;
+}
+#header .btn-reserve {
+  background: #2d3e4e;
+  color: #FFFFFF;
+  font-family: "Noto Serif JP", serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 100px;
+  transition: all 0.5s ease;
+  border: 1px solid #2D3E4E;
+}
+#header .btn-reserve:hover {
+  background-color: transparent;
+  color: #2d3e4e;
+}
+
+/* ハンバーガーボタン（三本線）の基本デザイン（PC時は非表示） */
+.menu-trigger {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 200;
+  /* クリックされて「×」になったとき */
+}
+.menu-trigger span {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF; /* 白い三本線 */
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+.menu-trigger span:nth-child(1) {
+  top: 0;
+}
+.menu-trigger span:nth-child(2) {
+  top: 11px;
+}
+.menu-trigger span:nth-child(3) {
+  top: 22px;
+}
+.menu-trigger.active span {
+  background-color: #FFFFFF;
+}
+.menu-trigger.active span:nth-child(1) {
+  transform: translateY(11px) rotate(-45deg);
+}
+.menu-trigger.active span:nth-child(2) {
+  opacity: 0; /* 真ん中の線を消す */
+}
+.menu-trigger.active span:nth-child(3) {
+  transform: translateY(-11px) rotate(45deg);
+}
+
+/* ★追加：スマホ用メニュー裏画面（PC時は非表示） */
+.sp-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(45, 62, 78, 0.98);
+  z-index: 150;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.sp-nav.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+.sp-nav ul {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.sp-nav ul li {
+  margin-bottom: 30px;
+}
+.sp-nav ul li a {
+  font-family: "Noto Serif JP", serif;
+  font-size: 20px;
+  color: #FFFFFF;
+  letter-spacing: 0.2em;
+}
+.sp-nav .sp-nav-btn {
+  background-color: #A38A70;
+  color: #FFFFFF;
+  padding: 16px 40px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+/*mainvisual*/
+#mainvisual {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+#mainvisual .picture-fade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#mainvisual .picture-fade li {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+#mainvisual .picture-fade img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#mainvisual .top-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-family: "Noto Serif JP", serif;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 4% !important;
+  text-align: left !important;
+}
+#mainvisual .mv-title {
+  font-size: 38px;
+  color: #FFFFFF;
+  line-height: 1.8;
+  letter-spacing: 0.2em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+#mainvisual .mv-title-sab {
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  opacity: 0.9;
+  color: #fff;
+}
+#mainvisual .picture-fade li {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  -webkit-animation: fade 15s infinite;
+          animation: fade 15s infinite;
+}
+#mainvisual .picture-fade li:nth-child(1) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+#mainvisual .picture-fade li:nth-child(2) {
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+#mainvisual .picture-fade li:nth-child(3) {
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+}
+#mainvisual .picture-fade li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#mainvisual .picture-fade li::after {
+  display: none;
+}
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#mainvisual .scroll_down {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+#mainvisual .scroll_down a {
+  display: inline-block;
+  position: relative;
+  writing-mode: vertical-lr;
+  font-family: "Josefin Sans", sans-serif;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  padding-bottom: 110px;
+}
+#mainvisual .scroll_down a::before {
+  content: "";
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 80px;
+  margin-left: -1px;
+  background: rgba(255, 255, 255, 0.25);
+}
+#mainvisual .scroll_down a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 2px;
+  height: 80px;
+  margin-left: -1px;
+  background: #A38A70;
+  -webkit-animation: sdl01 2.5s infinite;
+          animation: sdl01 2.5s infinite;
+}
+@-webkit-keyframes sdl01 {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  50.1% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+@keyframes sdl01 {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  50.1% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+/*concept*/
+#concept .fixed-bg {
+  background-image: url("../img/concept.jpg");
+  height: 650px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#concept .section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 2 !important;
+  letter-spacing: 0.18em !important;
+}
+#concept .text-inner h3 {
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 23px;
+  line-height: 2;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #2A2A2A;
+  margin-bottom: 35px;
+}
+#concept .concept-text p {
+  text-align: center;
+  margin-bottom: 18px;
+  line-height: 2.4 !important;
+  letter-spacing: 0.1em !important;
+}
+#concept .text-inner {
+  width: 420px;
+  margin: 0 auto;
+  padding: 55px 50px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/*stay*/
+.stay-section {
+  position: relative;
+  padding: 120px 0 100px 0;
+  background: #FAF8F5;
+  overflow: visible;
+  scroll-margin-top: 90px;
+}
+.stay-section .title-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.stay-section .sub-title {
+  margin-top: 8px;
+  color: #2A2A2A;
+  letter-spacing: 0.2em;
+}
+.stay-section .stay-title {
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 80px;
+  color: #2A2A2A;
+}
+.stay-section .slick-area {
+  width: 100%;
+}
+.stay-section .room-card {
+  transform: scale(0.84);
+  opacity: 0.45;
+  width: 420px;
+  margin: 0 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: 0.6s ease;
+  background: transparent;
+  box-shadow: none;
+}
+.stay-section .slick-center .room-card {
+  transform: scale(1);
+  opacity: 1;
+}
+.stay-section .room-img-box {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.stay-section .room-img-box img {
+  width: 100%;
+  height: 360px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 0.6s;
+}
+.stay-section .room-card img {
+  width: 100%;
+  display: block;
+}
+.stay-section .room-card:hover img {
+  transform: scale(1.03);
+}
+.stay-section .room-info {
+  padding: 22px 10px;
+  text-align: center;
+  background: transparent;
+}
+.stay-section .room-name {
+  font-family: "Noto Serif JP", serif;
+  font-size: 18px;
+  letter-spacing: 0.15em;
+  color: #2A2A2A;
+}
+.stay-section .slick-current {
+  transform: scale(1);
+  opacity: 1;
+}
+.stay-section .slick-dots {
+  position: relative;
+  bottom: auto;
+  margin-top: 30px;
+}
+
+/*morning*/
+.morning-section {
+  padding: 100px 0 0;
+  background: #fff;
+  scroll-margin-top: 90px;
+}
+.morning-section .title-container {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.morning-section .morning-title {
+  text-align: center;
+  font-family: "Noto Serif JP", serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 80px;
+  color: #2A2A2A;
+}
+.morning-section .morning-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  margin-bottom: 100px;
+}
+.morning-section .morning-reverse {
+  flex-direction: row-reverse;
+}
+.morning-section .morning-img {
+  width: 55%;
+  max-width: 600px;
+  opacity: 0;
+  transition: opacity 1s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.morning-section .morning-img img {
+  width: 100%;
+  display: block;
+}
+.morning-section .morning-img-left {
+  transform: translateX(-60px);
+}
+.morning-section .morning-img-right {
+  transform: translateX(60px);
+}
+.morning-section .morning-img.is-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.morning-section .morning-text {
+  width: 360px;
+  padding: 30px 0;
+  background: transparent;
+}
+.morning-section .morning-text h4 {
+  font-size: 20px;
+  font-family: "Noto Serif JP", serif;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+.morning-section .morning-text p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 2.2;
+}
+
+/*Journey*/
+.journey-section {
+  padding: 90px 7%;
+  padding-top: 0;
+}
+.journey-section .section-title {
+  margin-bottom: 12px;
+}
+.journey-section .journey-title {
+  color: #5A5248;
+  letter-spacing: 0.12em;
+  font-family: "Noto Serif JP", serif;
+  margin-bottom: 60px !important;
+}
+.journey-section .journey-visual {
+  margin-bottom: 60px;
+  display: flex;
+  gap: 25px;
+}
+.journey-section .item-map {
+  width: 60%;
+  height: 350px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.journey-section .item-map iframe {
+  width: 100%;
+  height: 100%;
+}
+.journey-section .outer-img-box {
+  width: 40%;
+  height: 350px;
+  display: block;
+  border-radius: 4px !important;
+  overflow: hidden;
+}
+.journey-section .outer-img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.journey-section .journey-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 40px;
+}
+.journey-section .info-card {
+  width: 30%;
+}
+.journey-section .info-card dt {
+  display: flex;
+  align-items: center;
+  font-family: "Noto Serif JP", serif;
+  letter-spacing: 0.08em;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2A2A2A;
+  margin-bottom: 16px;
+  border-left: 2px solid #A38A70;
+  padding-left: 10px;
+}
+.journey-section .info-card dd p {
+  line-height: 1.5;
+  color: #5A5248;
+}
+.journey-section .info-card i {
+  color: #A38A70;
+  margin-right: 10px;
+}
+.journey-section .info-sub {
+  color: #999;
+  font-size: 12px;
+}
+
+/*cat*/
+.cta-section {
+  position: relative;
+  background-image: url(../img/yoyakuhaikei.jpg);
+  background-size: cover;
+  background-position: center 40% !important;
+}
+.cta-section .cta-inner {
+  margin: 0 auto;
+  color: #fff;
+  padding: 80px 10%;
+}
+.cta-section .cta-title {
+  font-family: "Noto Serif JP", serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin-left: 100px;
+  margin-bottom: 25px;
+}
+.cta-section .cta-text {
+  font-family: "Noto Serif JP", serif;
+  font-size: 16px;
+  max-width: 600px;
+  line-height: 2;
+  margin-left: 100px;
+  margin-bottom: 35px;
+}
+.cta-section .cta-button {
+  display: inline-block;
+  padding: 16px 55px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #fff;
+  color: #2d3e4e;
+  border-radius: 999px;
+  transition: 0.3s;
+  margin-top: 0;
+}
+.cta-section .cta-button:hover {
+  transform: translateY(-3px);
+  background-color: #2d3e4e;
+  color: #FFFFFF;
+}
+.cta-section .cta-btn {
+  text-align: center;
+}
+
+/* ===========================
+   PC Footer
+=========================== */
+.footer-pc {
+  background: #2d3e4e;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.footer-logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  opacity: 0.7;
+  letter-spacing: 0.08em;
+  margin-bottom: 35px;
+}
+
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  margin-bottom: 35px;
+}
+
+.footer-nav li {
+  position: relative;
+}
+
+.footer-nav li::after {
+  content: "/";
+  position: absolute;
+  right: -17px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-nav li:last-child::after {
+  display: none;
+}
+
+.footer-nav a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-nav a:hover {
+  color: var(--hotel-gold);
+}
+
+.footer-pc small {
+  font-size: 11px;
+  opacity: 0.6;
+  letter-spacing: 0.08em;
+}
+
+/* スマホ用はPCでは非表示 */
+.footer-sp {
+  display: none;
+}
+
+/* PC 時はスマホ追従ボタンを消す */
+.sp-fixed-btn {
+  display: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* 4. フォーム入力欄のレイアウト */
+  /* 入力欄（input / select）のスタイリング */
+  /* 5. 閉じるボタン（×マーク） */
+  /* 6. 空室を検索するボタン */
+}
+.modal .modal.is-active {
+  display: flex;
+}
+.modal .modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 45px 35px;
+  box-shadow: 0 15px 40px rgba(0, 1, 1, 0.1);
+  -webkit-animation: popup 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+          animation: popup 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+@-webkit-keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.modal .modal-content h2 {
+  font-family: "Noto Serif JP", serif;
+  font-size: 20px;
+  color: #2D3E4E;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.modal .modal-text {
+  color: #5A5248;
+  font-size: 13px;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+}
+.modal .form-group {
+  margin-bottom: 20px;
+}
+.modal .modal-content label {
+  display: block;
+  font-size: 11px;
+  color: #A38A70;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.modal .modal-content input,
+.modal .modal-content select {
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgba(163, 138, 112, 0.3);
+  border-radius: 6px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #2A2A2A;
+  background-color: #FAF8F5;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.modal .modal-content input:focus,
+.modal .modal-content select:focus {
+  border-color: #2D3E4E;
+  box-shadow: 0 0 0 3px rgba(45, 62, 78, 0.08);
+}
+.modal .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+  background: none;
+  font-size: 28px;
+  color: #5A5248;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.3s;
+}
+.modal .close:hover {
+  color: #A38A70;
+}
+.modal .search-btn {
+  width: 100%;
+  height: 52px;
+  margin-top: 15px;
+  background: #2D3E4E;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(45, 62, 78, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+.modal .search-btn:hover {
+  background: #1A2836;
+}
+.modal .search-btn:active {
+  transform: scale(0.98);
+}
+@media (max-width: 480px) {
+  .modal {
+    padding: 30px 20px;
+  }
+  .modal .modal-content h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  .modal .modal-text {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 1. ヘッダー */
+  #header {
+    padding: 0 5%;
+    background-color: #b18a53;
+    -webkit-backdrop-filter: blur;
+            backdrop-filter: blur;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* PC 用のメニューとボタンは非表示 */
+    /* ハンバーガーボタン */
+  }
+  #header .logo img {
+    height: 40px;
+  }
+  #header .nav,
+#header .header-btn-box {
+    display: none !important;
+  }
+  #header .menu-trigger {
+    display: block;
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: 5% !important;
+    z-index: 600 !important;
+  }
+  .sp-nav {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    height: 100dvh !important;
+    z-index: 500 !important;
+  }
+  /* 2. メインビジュアル */
+  #mainvisual {
+    height: calc(100svh - 60px);
+  }
+  #mainvisual .top-text {
+    top: 45%;
+    padding: 0 5% !important;
+    text-align: left;
+  }
+  #mainvisual .mv-title {
+    font-size: 21px !important;
+    line-height: 1.7;
+    letter-spacing: 0.12em !important;
+    word-break: keep-all !important;
+  }
+  #mainvisual .mv-title-sab {
+    font-size: 11px !important;
+    margin-top: 14px;
+    letter-spacing: 0.2em;
+  }
+  #mainvisual .scroll_down {
+    bottom: 15px;
+  }
+  #mainvisual .scroll_down a {
+    font-size: 10px !important;
+    padding-bottom: 55px !important;
+  }
+  #mainvisual .scroll_down a::before {
+    height: 45px !important;
+  }
+  #mainvisual .scroll_down a::after {
+    height: 45px !important;
+  }
+  /* 3. 各セクションの余白を縮め */
+  #morning {
+    scroll-margin-top: 70px;
+  }
+  #journey {
+    scroll-margin-top: 80px;
+  }
+  /* Concept */
+  #concept .section-title {
+    font-size: 21px !important;
+    margin-bottom: 25px;
+  }
+  .fixed-bg {
+    height: auto;
+    min-height: 650px;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+  .text-inner {
+    width: 100%;
+    max-width: 420px;
+    padding: 55px 30px;
+    box-sizing: border-box;
+  }
+  .concept-text p {
+    font-size: 13px !important;
+    line-height: 2;
+    margin-bottom: 15px;
+  }
+  /* Stay */
+  #stay {
+    scroll-margin-top: 100px;
+  }
+  .stay-section {
+    padding: 70px 0 50px;
+  }
+  .section-title {
+    font-size: 21px !important;
+  }
+  .stay-title {
+    font-size: 13px !important;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  .slick-dots {
+    position: relative;
+    bottom: auto;
+    margin-top: 20px;
+  }
+  .slick-slide {
+    transform: scale(0.88);
+  }
+  .room-name {
+    padding: 10px 0;
+  }
+  .slick-center {
+    transform: scale(1);
+  }
+  .slick-dots li button::before {
+    color: #c8b08c;
+    opacity: 0.4;
+    font-size: 8px;
+  }
+  .slick-dots li.slick-active button::before {
+    color: #A38A70;
+    opacity: 1;
+  }
+  /* 4. ：Morning*/
+  .morning-section {
+    padding: 70px 0 50px;
+  }
+  .section-title {
+    font-size: 21px !important;
+  }
+  .morning-block {
+    flex-direction: column !important;
+    gap: 20px !important;
+    margin-bottom: 0;
+  }
+  .morning-block.morning-reverse {
+    flex-direction: column !important;
+  }
+  .morning-img {
+    width: 100% !important;
+    height: 230px !important;
+    opacity: 1 !important;
+    transform: none !important;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .morning-img img {
+    width: 100% !important;
+    height: 100% !important;
+    -o-object-fit: cover !important;
+       object-fit: cover !important;
+    display: block;
+  }
+  .morning-text {
+    width: 100% !important;
+    padding: 0 20px;
+    text-align: center;
+  }
+  .morning-text h4 {
+    font-size: 17px !important;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .morning-text p {
+    font-size: 13px !important;
+    line-height: 1.8;
+  }
+  /* 5.Journeyの重なり直らない */
+  .section-title {
+    padding: 50px 20px 0 20px;
+  }
+  .journey-title {
+    font-size: 13px !important;
+    margin-bottom: 15px;
+    padding: 0 15px;
+  }
+  .journey-visual {
+    flex-direction: column !important;
+    gap: 15px !important;
+    padding: 0 15px;
+  }
+  .journey-visual .item-map,
+.journey-visual .outer-img-box {
+    width: 100% !important;
+    height: 200px !important;
+  }
+  /* カード */
+  .journey-info {
+    flex-direction: column !important;
+    gap: 25px !important;
+    border-top: 1px solid rgba(163, 138, 112, 0.15);
+    padding-top: 30px !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+  }
+  .journey-info .info-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 20px 0 !important;
+    position: static !important;
+  }
+  .journey-info .info-card dt {
+    font-size: 15px !important;
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+  .journey-info .info-card dd {
+    width: 100% !important;
+  }
+  .journey-info .info-card dd p {
+    font-size: 12px !important;
+    line-height: 1.7;
+    margin-bottom: 4px;
+    word-break: break-all;
+  }
+  .journey-info .info-card dd p br {
+    display: none !important;
+  }
+  /* 6. 予約CTAセクションの微調整 */
+  #cta, .cta-section {
+    padding: 50px 20px 110px !important;
+    text-align: center;
+    background-attachment: scroll !important;
+    background-position: center top !important;
+  }
+  #cta .cta-title, .cta-section .cta-title {
+    font-size: 20px !important;
+    letter-spacing: 0.12em !important;
+    margin-left: 0;
+    margin-bottom: 16px;
+  }
+  #cta .cta-text, .cta-section .cta-text {
+    font-size: 12px !important;
+    line-height: 1.9;
+    margin-left: 0;
+    margin-bottom: 32px;
+    opacity: 0.9;
+  }
+  #cta .cta-button, .cta-section .cta-button {
+    display: inline-block !important;
+    width: 85% !important;
+    max-width: 280px !important;
+    padding: 14px 0 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.1em !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+  }
+  /* ===========================
+  PC Footerを消す
+  =========================== */
+  .footer-pc {
+    display: none !important;
+  }
+  /* ===========================
+  SP Footer
+  =========================== */
+  .footer-sp {
+    display: block !important;
+    background: #2d3e4e;
+    text-align: center;
+    padding: 50px 20px 80px;
+    color: #fff;
+    margin-top: 0 !important;
+  }
+  .footer-logo-sp {
+    width: 170px;
+    height: auto;
+    margin-bottom: 18px;
+  }
+  .footer-copy {
+    font-size: 11px;
+    opacity: 0.6;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    letter-spacing: 0.08em;
+  }
+  .footer-nav-sp ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    margin-bottom: 35px;
+  }
+  .footer-nav-sp a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+  }
+  .footer-nav-sp a:hover {
+    opacity: 0.7;
+  }
+  .footer-sp small {
+    display: block;
+    font-size: 11px;
+    opacity: 0.5;
+  }
+  /* スマホ専用：下部固定の追従予約ボタンをフワッと出現！ */
+  .sp-fixed-btn {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-top: 1px solid rgba(163, 138, 112, 0.2) !important;
+    padding: 0 16px !important;
+    z-index: 999 !important; /* モーダル以外の全要素より確実に手前に出す */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08) !important;
+  }
+  .sp-fixed-btn .sp-btn-text {
+    border: none !important;
+    text-decoration: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 1;
+  }
+  .sp-fixed-btn .sp-btn-text span {
+    font-size: 9px !important;
+    color: #A38A70 !important;
+    display: block !important;
+    letter-spacing: 0.1em !important;
+    line-height: 1.2 !important;
+  }
+  .sp-fixed-btn .sp-btn-text p {
+    font-size: 11px !important;
+    color: #5A5248 !important;
+    margin: 0 !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em !important;
+    border: none !important;
+    text-decoration: none !important;
+  }
+  .sp-fixed-btn .sp-btn-text .btn-reserve-sp {
+    background-color: #2D3E4E !important;
+    color: #FFFFFF !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 10px 18px !important;
+    border-radius: 100px !important;
+    text-decoration: none !important;
+    letter-spacing: 0.08em !important;
+    box-shadow: 0 2px 8px rgba(45, 62, 78, 0.2) !important;
+    flex-shrink: 0;
+  }
+  .sp-fixed-btn .btn-reserve-sp,
+.sp-fixed-btn a.btn-reserve-sp {
+    display: inline-block;
+    background: #2D3E4E;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    border: none;
+    box-shadow: 0 2px 8px rgba(45, 62, 78, 0.25);
+  }
+}
+/*# sourceMappingURL=style.css.map */
